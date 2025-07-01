@@ -5,13 +5,14 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 interface ChatPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function ChatPage({ params }: ChatPageProps) {
-  const philosopher = philosophersData.find(p => p.id === params.id)
+export default async function ChatPage({ params }: ChatPageProps) {
+  const { id } = await params
+  const philosopher = philosophersData.find(p => p.id === id)
   
   if (!philosopher) {
     notFound()
