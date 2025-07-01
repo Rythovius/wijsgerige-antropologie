@@ -1,15 +1,15 @@
 {
-  "name": "gemini-chatbot",
+  "name": "filosofie-chat-app",
   "version": "0.1.0",
   "private": true,
-  "description": "Een Next.js template met Gemini AI integratie, geoptimaliseerd voor Bolt + Netlify deployment",
+  "description": "Een Next.js app waarmee leerlingen in gesprek kunnen met filosofen over 'Wat is de mens?'",
   "keywords": [
     "nextjs",
-    "gemini",
+    "filosofie",
+    "education",
     "ai",
     "chatbot",
-    "netlify",
-    "bolt",
+    "vercel",
     "typescript"
   ],
   "author": "Tom Naberink",
@@ -18,27 +18,31 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "netlify-build": "next build"
+    "vercel-build": "next build"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
-    "@netlify/plugin-nextjs": "^4.41.3",
+    "@supabase/supabase-js": "^2.39.0",
     "docx": "^9.5.0",
-    "fs": "^0.0.1-security",
+    "jspdf": "^2.5.1",
+    "html2canvas": "^1.4.1",
     "mammoth": "^1.9.1",
     "next": "15.3.3",
+    "next-themes": "^0.2.1",
     "pdf-parse": "^1.1.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "@types/pdf-parse": "^1.1.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.3.3",

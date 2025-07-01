@@ -1,6 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  devIndicators: false
+  devIndicators: false,
+  experimental: {
+    serverComponentsExternalPackages: ['pdf-parse']
+  },
+  // PWA Configuration
+  async headers() {
+    return [
+      {
+        source: '/manifest.json',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/manifest+json',
+          },
+        ],
+      },
+    ]
+  }
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig
