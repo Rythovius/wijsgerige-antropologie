@@ -5,9 +5,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 interface PhilosopherPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function PhilosopherPage({ params }: PhilosopherPageProps) {
