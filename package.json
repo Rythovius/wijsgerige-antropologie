@@ -17,29 +17,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "vercel-build": "next build"
+    "lint": "next lint"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
-    "@supabase/supabase-js": "^2.39.0",
     "docx": "^9.5.0",
     "jspdf": "^2.5.1",
     "html2canvas": "^1.4.1",
-    "mammoth": "^1.9.1",
     "next": "15.3.3",
     "next-themes": "^0.2.1",
-    "pdf-parse": "^1.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "@types/pdf-parse": "^1.1.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@types/uuid": "^9.0.7",
