@@ -181,12 +181,12 @@ Laat het debat beginnen:`
         }
         
         // Speaker
-        doc.setFont(undefined, 'bold')
+        doc.setFont('helvetica', 'bold')
         doc.text(`${message.speaker}:`, 20, yPosition)
         yPosition += 7
         
         // Message content
-        doc.setFont(undefined, 'normal')
+        doc.setFont('helvetica', 'normal')
         const lines = doc.splitTextToSize(message.message, 170)
         doc.text(lines, 20, yPosition)
         yPosition += lines.length * 5 + 10
