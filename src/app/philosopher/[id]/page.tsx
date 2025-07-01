@@ -10,8 +10,9 @@ interface PhilosopherPageProps {
   }
 }
 
-export default function PhilosopherPage({ params }: PhilosopherPageProps) {
-  const philosopher = philosophersData.find(p => p.id === params.id)
+export default async function PhilosopherPage({ params }: PhilosopherPageProps) {
+  const { id } = await params
+  const philosopher = philosophersData.find(p => p.id === id)
   
   if (!philosopher) {
     notFound()
