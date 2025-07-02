@@ -1,41 +1,24 @@
 {
-  "name": "filosofie-chat-app",
+  "name": "filosofie-chat-simple",
   "version": "0.1.0",
   "private": true,
-  "description": "Een Next.js app waarmee leerlingen in gesprek kunnen met filosofen over 'Wat is de mens?'",
-  "keywords": [
-    "nextjs",
-    "filosofie",
-    "education",
-    "ai",
-    "chatbot",
-    "vercel",
-    "typescript"
-  ],
-  "author": "Tom Naberink",
+  "description": "Een eenvoudige Next.js app waarmee leerlingen in gesprek kunnen met filosofen",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "engines": {
-    "node": "18.x"
-  },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "next": "15.3.3",
-    "next-themes": "^0.2.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "uuid": "^9.0.1",
-    "jspdf": "^2.5.1"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
-    "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.0.0",
     "eslint-config-next": "15.3.3",

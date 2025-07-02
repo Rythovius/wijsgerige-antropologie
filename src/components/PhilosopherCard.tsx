@@ -1,60 +1,47 @@
-'use client'
-
-import { Philosopher } from '@/lib/supabase'
-import Link from 'next/link'
+import { Philosopher } from '@/lib/philosophers'
 
 interface PhilosopherCardProps {
   philosopher: Philosopher
+  isSelected: boolean
+  onSelect: () => void
 }
 
-export function PhilosopherCard({ philosopher }: PhilosopherCardProps) {
+export function PhilosopherCard({ philosopher, isSelected, onSelect }: PhilosopherCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-              {philosopher.name}
-            </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-              {philosopher.period}
-            </p>
-          </div>
-          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-            {philosopher.name.charAt(0)}
-          </div>
+    <div 
+      onClick={onSelect}
+      className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+        isSelected 
+          ? 'border-purple-500 bg-purple-50' 
+          : 'border-gray-200 bg-white hover:border-purple-300'
+      }`}
+    >
+      <div className="flex items-start justify-between mb-3">
+        <div>
+          <h3 className="font-bold text-gray-900">{philosopher.name}</h3>
+          <p className="text-sm text-gray-500">{philosopher.period}</p>
         </div>
-        
-        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
-          {philosopher.short_summary}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {philosopher.key_concepts.slice(0, 3).map((concept, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 text-xs rounded-full"
-            >
-              {concept}
-            </span>
-          ))}
-        </div>
-        
-        <div className="flex gap-2">
-          <Link
-            href={`/philosopher/${philosopher.id}`}
-            className="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors text-center"
-          >
-            📚 Lees meer
-          </Link>
-          <Link
-            href={`/chat/${philosopher.id}`}
-            className="flex-1 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium py-2 px-4 rounded-lg transition-colors text-center"
-          >
-            💬 Chat
-          </Link>
+        <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+          {philosopher.name.charAt(0)}
         </div>
       </div>
+      
+      <p className="text-sm text-gray-600 mb-3">{philosopher.summary}</p>
+      
+      <div className="flex flex-wrap gap-1 mb-3">
+        {philosopher.keyIdeas.slice(0, 2).map((idea, index) => (
+          <span
+            key={index}
+            className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full"
+          >
+            {idea}
+          </span>
+        ))}
+      </div>
+      
+      <blockquote className="text-xs italic text-gray-500 border-l-2 border-purple-300 pl-2">
+        "{philosopher.quote}"
+      </blockquote>
     </div>
   )
 }
